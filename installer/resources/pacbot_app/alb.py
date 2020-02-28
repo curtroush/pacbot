@@ -59,6 +59,8 @@ class ApplicationLoadBalancer(LoadBalancerResource):
             url (str): abs url of pacbot
         """
         pacbot_domain = Settings.get('PACBOT_DOMAIN', None)
+        print (pacbot_domain, " look here")
+
         pacbot_domain = pacbot_domain if pacbot_domain else dns_name
 
         return "%s://%s" % (Settings.get('ALB_PROTOCOL', "HTTP").lower(), pacbot_domain)
